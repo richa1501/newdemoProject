@@ -1,3 +1,107 @@
-mat-sideNav-container{
+mat-list {
+    background-color: rgb(16, 136, 206);
     height:calc(100vh - 4rem);
+    width:5rem;
+    z-index:1;
+    position: fixed;
+    transition: all 0.5s ease;
+    
+    .logo-container{
+        display: flex;
+        align-items: center;
+        padding:0.938rem 0.938rem 0 0.938rem;
+        width:100%;
+
+        .logo{
+
+            text-align: center;
+            width:3rem;
+            min-width: 3rem;
+            padding:0.313rem; 
+            img{
+                width:60px; 
+                height:60px;
+            }           
+        }
+        .logo-text{
+
+            margin-left:1.5rem;
+            font-size:24px;
+            color:#fff
+        }
+        .btn-close{
+              margin-left:auto;
+              cursor: pointer;
+              width:2rem;
+              height:2rem;
+              border-radius: 50%;
+              background-color: transparent;
+              border:none;
+              mat-icon{
+                color:#fff
+              }
+        }
+   
+    }
+}
+.sidenav-collapsed{
+    width:250px;
+}
+
+
+
+    .sidenav-nav {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .sidenav-item {
+            width: 100%;
+            margin-bottom: 0.25rem;
+
+            .sidenav-link {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                height: 3rem;
+                color: white;
+                border-radius: 0.625rem;
+
+                .sidenav-icon {
+                    font-size: 22px;
+                    width: 2rem;
+                    min-width: 2rem;
+                    margin: 0 0.5rem;
+                    text-align: center;
+                }
+
+                .sidenav-text {
+                    // margin-left: 1.5rem;
+
+                }
+            }
+        }
+    
+
+    .sidenav-item:hover {
+        
+
+        .sidenav-link {
+            background-color: #fff;
+            .sidenav-icon {
+                color: rgb(16, 136, 206);
+            }
+
+            .sidenav-text {
+                color: rgb(16, 136, 206);
+            }
+        }
+
+        // .sidenav-text{}
+    }
+
 }

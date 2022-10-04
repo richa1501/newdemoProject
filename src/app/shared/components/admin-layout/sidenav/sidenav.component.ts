@@ -6,12 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent  {
-toggle() {
-throw new Error('Method not implemented.');
+  data: any;
+  collapsed: boolean = true;
+  navData = [
+    {
+      routerLink:'dashboard',
+      icon:'home',
+      label:'Home'
+    }
+  ]
+
+closeSideNav(){
+  this.collapsed = false;
 }
-
-  constructor() { }
-
-
 
 }

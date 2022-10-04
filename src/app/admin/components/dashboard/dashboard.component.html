@@ -1,16 +1,15 @@
-<div class="header">
-    <app-adminheader class="sidenav-toggle"(click)='sideNav.toggle()'></app-adminheader>
-    <div class="sidenav">
-        <app-sidenav #sideNav mode="side" opened></app-sidenav>
-    </div>
-</div>
-<!-- <mat-sidenav-container>
-    <mat-sidenav #sideNav mode="side" opened>
+
+
+    <div class="toolbar">
+        <!-- <app-adminheader mat-icon  class="drawer-toggle"(click)='drawer.toggle()'></app-adminheader> -->
+        <app-adminheader mat-icon ></app-adminheader>
+     </div>
+
+<mat-drawer-container>
+    <mat-drawer #drawer mode="side" opened>
         <app-sidenav></app-sidenav>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content">                   
-            <div class=" Main"> Main content</div>
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container> -->
+    </mat-drawer>
+    <mat-drawer-content>        
+            <div class=" Main"> Main content</div>        
+    </mat-drawer-content>
+</mat-drawer-container>
