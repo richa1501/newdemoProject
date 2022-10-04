@@ -1,0 +1,73 @@
+<section>
+    <app-header></app-header>
+    <div class="card-wrapper">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Sign Up</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                    <p>
+                        <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
+                            <mat-label>User Name</mat-label>
+                            <input type="text" matInput formControlName="name" placeholder="Full Name " />
+                            <mat-hint>UserName Should be Full Name</mat-hint>
+                            <mat-error *ngIf="signupForm.controls['name'].hasError('required')">
+                                UserName is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com" />
+                            <mat-error *ngIf="signupForm.controls['email'].errors">
+                                Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="signupForm.controls['email'].hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+                    </p>
+                    <p>
+                        <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput formControlName="password" placeholder="Password" />
+                            <mat-hint>Password mustbe 8 characters (at least 1 Uppercase latter, 1 Lowercase latter, 1
+                                Number and 1 Special Character)</mat-hint>
+                            <mat-error
+                                *ngIf="signupForm.controls['password'].invalid && !signupForm.controls['password'].hasError('required')">
+                                Password is invalid
+                            </mat-error>
+                            <mat-error *ngIf="signupForm.controls['password'].hasError('required')">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
+                            <mat-label>ConfirmPassword</mat-label>
+                            <input type="password" matInput formControlName="cpassword" placeholder="Confirm Password">
+                            <mat-error
+                                *ngIf="signupForm.controls['cpassword'].invalid && !signupForm.controls['cpassword'].hasError('required')">
+                                ConfirmPassword and Password must be same
+                            </mat-error>
+                            <mat-error *ngIf="signupForm.controls['cpassword'].hasError('required')">
+                                Confirm Password <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-card-actions>
+                            <button mat-raised-button color="primary" type="Submit"
+                                [disabled]="signupForm.invalid">Register</button>
+                        </mat-card-actions>
+                    </p>
+
+                </form>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</section>
