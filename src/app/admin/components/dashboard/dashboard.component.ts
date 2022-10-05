@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   
-  sideBarOpen=true;
+  // sideBarOpen=true;
+  sideNavStatus : boolean = false;
+
   
   constructor() {}
 

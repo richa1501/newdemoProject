@@ -1,17 +1,17 @@
-<mat-list>
-  <div class="logo-container" [ngClass]="collapsed ? 'sidenav-collapsed' :'' ">
-    <div class="logo" *ngIf="collapsed"><img src="/assets/images/logo.png" ></div>
+<mat-list class="sidenav">
+  <!-- <div class="logo-container" [ngClass]="collapsed ? 'sidenav-collapsed' :'' ">
+    <div class="logo" *ngIf="collapsed"><img src="/assets/images/logo.png"  ></div>
     <div class="logo-text" *ngIf="collapsed">Educator</div>
     <button  class="btn-close" mat-icon-button *ngIf="collapsed" (click) ="closeSideNav()"><mat-icon>clear</mat-icon>  </button>
-  </div>
-<div class="sidenav" > 
-  <ul class="sidenav-nav">
+  </div> -->
+
+  <ul class="sidenav-nav"[ngClass]="{'sidenav-nav-open': sideNavStatus }" >
      <li class="sidenav-item" *ngFor="let data of navData">
-       <a class="sidenav-link" [routerLink]="[data.routerLink]">
+       <!-- <a class="sidenav-link" [routerLink]="[data.routerLink]"> -->
          <mat-icon class="sidenav-icon">{{data.icon}}</mat-icon>
          <span class="sidenav-text" *ngIf="collapsed" >{{data.label}}</span>
-       </a>
+       <!-- </a> -->
       </li>
     </ul>
-  </div>
+
 </mat-list>

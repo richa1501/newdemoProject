@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,11 +6,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent  {
+  @Input() sideNavStatus : boolean=false;
   data: any;
   collapsed: boolean = true;
   navData = [
     {
-      routerLink:'dashboard',
+      // routerLink:'dashboard',
+      icon:'home',
+      label:'Home'
+    },
+    {
+      // routerLink:'dashboard',
+      icon:'home',
+      label:'Home'
+    },
+    {
+      // routerLink:'dashboard',
+      icon:'home',
+      label:'Home'
+    },
+    {
+      // routerLink:'dashboard',
+      icon:'home',
+      label:'Home'
+    },
+    {
+      // routerLink:'dashboard',
       icon:'home',
       label:'Home'
     }

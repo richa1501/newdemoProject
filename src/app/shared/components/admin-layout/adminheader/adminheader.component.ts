@@ -14,13 +14,13 @@ export class AdminheaderComponent  {
 //     this.toggleSidebarForMe.emit();
 
 //   }
-@Output()  sideNavToggled = new EventEmitter<boolean>();
+@Output()  sidenavToggled = new EventEmitter<boolean>();
   
 menuStatus : boolean = false;
 
-sideNavToggle(){
+sidenavToggle(){
   this.menuStatus = !this.menuStatus;
-  this.sideNavToggled.emit(this.menuStatus);
+  this.sidenavToggled.emit(this.menuStatus);
 }
 
 }
