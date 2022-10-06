@@ -3,11 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/components/login/login.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    redirectTo: 'auth/login', 
-    pathMatch: 'full' 
-  },
+  
   
     {
       path: 'auth',
@@ -20,6 +16,11 @@ const routes: Routes = [
     {
       path: 'public',
     loadChildren: () => import('./public/public.module').then(m => m.PublicModule)
+    },
+    { 
+      path: '', 
+      redirectTo: 'auth/login', 
+      pathMatch: 'full' 
     },
 
 ];

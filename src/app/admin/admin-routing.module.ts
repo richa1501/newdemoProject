@@ -5,12 +5,7 @@ import { PostComponent } from './components/post/post.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
-  
-  {path:'**',
-  redirectTo:"/admin/dashboard",
-  pathMatch:"full"},
-
-  {  
+    {  
   path: 'dashboard',
 component:DashboardComponent,
 children:[
@@ -23,7 +18,10 @@ children:[
   component:PostComponent
   }
 
-]}
+]},
+{path:'**',
+  redirectTo:"/admin/dashboard",
+  pathMatch:"full"},
 
 ];
 
