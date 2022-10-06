@@ -11,7 +11,7 @@
     </mat-drawer>
 
     <mat-drawer-content class="main-content"  [ngClass]="{'main-content-shrink' : sideNavStatus , 'main-con': !sideNavStatus ,'margin': sideNavStatus}">        
-            <div > Main content</div>        
+            <div > <router-outlet></router-outlet></div>        
     </mat-drawer-content>
 
 </mat-drawer-container>

@@ -44,10 +44,7 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 
           )
         },
-        // {
-        //   id: FacebookLoginProvider.PROVIDER_ID,
-        //   provider: new FacebookLoginProvider('clientId')
-        // }
+    
       ],
       onError: (err) => {
        

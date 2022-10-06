@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class Auth_Service {
+export class AuthService {
   
 
   userdata:any= null;

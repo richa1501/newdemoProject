@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators, FormBuilder,FormGroup } from '@angular/forms';
-import { Auth_Service } from '../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { emailValidator,passwordValidator } from '../../customeValidation';
 import { Router } from '@angular/router';
 import {
@@ -37,7 +37,7 @@ export class LoginComponent {
   roles: string[] = [];
 
   constructor(
-    private auth_Service: Auth_Service,
+    private auth: AuthService,
     private router: Router,    
     private socialAuthService: SocialAuthService,
     private formBuilder: FormBuilder,
@@ -58,7 +58,7 @@ export class LoginComponent {
     }
 
     let userdata = this.roles.values;
-    this.auth_Service.logIn(body).subscribe({
+    this.auth.logIn(body).subscribe({
       next: (response: any) => {
 
         let x = localStorage.getItem("userdata") as string;

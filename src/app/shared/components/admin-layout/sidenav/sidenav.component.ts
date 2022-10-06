@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,24 +12,25 @@ export class SidenavComponent  {
   collapsed: boolean = true;
   navData = [
     {
+      routerLink:'/admin/dashboard',
+      icon:'DashBoard',
+      label:'Dashboard'
+      
+    },
+    {
+      routerLink:'post',
+      icon:'table',
+      label:'Post'
+    },
+    {
       // routerLink:'dashboard',
-      icon:'home',
-      label:'Home'
+      icon:'',
+      label:'Profile'
     },
     {
       // routerLink:'dashboard',
       icon:'home',
-      label:'Home'
-    },
-    {
-      // routerLink:'dashboard',
-      icon:'home',
-      label:'Home'
-    },
-    {
-      // routerLink:'dashboard',
-      icon:'home',
-      label:'Home'
+      label:'Pages'
     },
     {
       // routerLink:'dashboard',
