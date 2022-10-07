@@ -1,14 +1,19 @@
-
+<!----Header For Auth Module--->
 <mat-toolbar class="image-overlay">
-    
-      <button mat-icon-button class="drawer-toggle"(click)='sidenavToggle()'><mat-icon >menu</mat-icon></button>
-   
-      <span class="menu-spacer"></span>
-      <div>
-        <a mat-button > <mat-icon>settings</mat-icon></a>
-        <a mat-button routerLink="/public/contactus"> <mat-icon>help_outline</mat-icon></a>
-        <a mat-button routerLink="/auth/login"> <mat-icon>exit_to_app</mat-icon></a>       
-      </div>
-  
-    
-  </mat-toolbar>
+  <button mat-icon-button class="drawer-toggle" (click)='sidenavToggle()'>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="menu-spacer"></span>
+  <!----List Of Buttons and Icons for Header---->
+  <div>
+    <a mat-button>
+      <mat-icon>settings</mat-icon>
+    </a>
+    <a mat-button routerLink="/public/contactus">
+      <mat-icon>help_outline</mat-icon>
+    </a>
+    <a mat-button routerLink="/auth/login" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </a>
+  </div>
+</mat-toolbar>

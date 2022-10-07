@@ -7,16 +7,12 @@ import api from 'src/app/shared/configs/api';
 })
 
 export class SignupService {
-  userData:any= null;
-  constructor(private http : HttpClient) { 
+
+  constructor(private http : HttpClient) { }
     
-    this.userData = localStorage.getItem("userData") || "{}";
-    this.userData= JSON.parse(this.userData);
-  }
+///SignUp Api Intigration
 
 signUp(body:any){ 
   return this.http.post(api.auth1.signUp,body);
-
-
 }
 }

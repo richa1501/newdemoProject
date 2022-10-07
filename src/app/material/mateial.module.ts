@@ -40,6 +40,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { MatTableExporterModule } from 'mat-table-exporter';
+
 
 
 const MaterailComponent = [  A11yModule,
@@ -83,7 +85,9 @@ const MaterailComponent = [  A11yModule,
   MatTooltipModule,
   MatTreeModule,
   PortalModule,
-  ScrollingModule,]
+  ScrollingModule,
+  MatTableExporterModule
+]
 
 @NgModule({
   imports: [MaterailComponent],

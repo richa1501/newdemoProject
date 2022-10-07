@@ -7,6 +7,8 @@
             </mat-card-header>
             <mat-card-content>
                 <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+
+                    <!----Email Feild---->
                     <p>
                         <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
                             <mat-label>Email</mat-label>
@@ -19,9 +21,14 @@
                             </mat-error>
                         </mat-form-field>
                     </p>
+
+                    <!---Password Feild---->
+                    <div class="forgotPassword">
+                        <a  routerLink="/auth/forgotPassword" >Forgot Password</a>
+                    </div>
                     <p>
-                        <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
-                            <mat-label>Password</mat-label>
+                        <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">                            
+                            <!-- <mat-label>Password</mat-label> -->
                             <input type="password" matInput formControlName="password" placeholder="Password" />
                             <mat-hint>Password mustbe 8 characters (at least 1 Uppercase latter, 1 Lowercase latter, 1
                                 Number and 1 Special Character)</mat-hint>
@@ -34,6 +41,8 @@
                             </mat-error>
                         </mat-form-field>
                     </p>
+
+                    <!----User Role Feild---->
                     <p>
                         <mat-form-field appearance="outline" style="width:100%">
                             <mat-label>Login As </mat-label>
@@ -46,16 +55,23 @@
                             </mat-error>
                         </mat-form-field>
                     </p>
+
+                    <!----Button Feild---->
                     <p>
                         <mat-card-actions>
-                            <button mat-raised-button color="primary" type="Submit" [disabled]="loginForm.invalid">Login</button>
+                            <button mat-raised-button color="primary" type="Submit"
+                                [disabled]="loginForm.invalid">Login</button>
                         </mat-card-actions>
                     </p>
+
+                    <!----Social Login Button Feild---->
                     <div class="btn-flex">
                         <button (click)="signInWithGoogle()" mat-raised-button color="accent">Google</button>
 
                     </div>
                 </form>
+                
+                <!----Redirection to Regiter User on sign Up page---->
                 <h4>New User SignUp Here!&nbsp;<a routerLink="/auth/signup">SignUp</a></h4>
             </mat-card-content>
         </mat-card>

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-adminheader',
@@ -7,13 +9,18 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./adminheader.component.scss']
 })
 export class AdminheaderComponent  {
+[x: string]: any;
 // sidenav: any;
 //   @Output() toggleSidebarForMe : EventEmitter<any> =new EventEmitter();
-//   constructor() { }
+//
 //   toggleSideBar(){
 //     this.toggleSidebarForMe.emit();
 
 //   }
+
+constructor(private router : Router) { }
+
+
 @Output()  sidenavToggled = new EventEmitter<boolean>();
   
 menuStatus : boolean = false;
@@ -23,4 +30,13 @@ sidenavToggle(){
   this.sidenavToggled.emit(this.menuStatus);
 }
 
+
+logout(){
+  this['userdata']={};  
+  // localStorage.setItem("userdata","{}");
+  localStorage.clear();
+  // localStorage.clear();
+  this['router'].navigateByUrl("/auth/login");
+  
+}
 }

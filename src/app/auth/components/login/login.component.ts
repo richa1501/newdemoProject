@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators, FormBuilder,FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { emailValidator,passwordValidator } from '../../customeValidation';
+import { emailValidator, passwordValidator } from '../../customeValidation';
 import { Router } from '@angular/router';
 import {
   SocialAuthService,
@@ -11,84 +11,76 @@ import {
 import { ToastrService } from 'ngx-toastr';
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
- 
+
   user: SocialUser | undefined;
-  
 
-  loginForm = this.formBuilder.group({    
-    email: new FormControl('', [
-      Validators.required,
-      emailValidator,
-    ]),
-    password: new FormControl('', [
-      Validators.required,passwordValidator      
-    ]),
-    role: new FormControl ('',[Validators.required])   
+
+  loginForm = this.formBuilder.group({
+
+    email: new FormControl('', [Validators.required, emailValidator,]),
+
+    password: new FormControl('', [Validators.required, passwordValidator ]),    
+
+    role: new FormControl('', [Validators.required])
+
   });
+  userData: any; // local Storage key name to save Response 
 
-  
-  roles: string[] = [];
-
+  //All Dependecy Import in Constructor
   constructor(
+
     private auth: AuthService,
-    private router: Router,    
+    private router: Router,
     private socialAuthService: SocialAuthService,
     private formBuilder: FormBuilder,
-    private toastr : ToastrService,
-  ) 
-  {
-    // this.roles = ['User', 'Admin'];
-   
-  }
-  ////login with normal login 
+    private toastr: ToastrService,
+
+  ) { }
+
+  //login with normal login 
   logIn() {
 
     let body = {
       username: this.loginForm.controls.email.value,
       password: this.loginForm.controls.password.value,
-      roles:this.loginForm.controls.role.value    
-      
     }
 
-    let userdata = this.roles.values;
     this.auth.logIn(body).subscribe({
       next: (response: any) => {
-
-        let x = localStorage.getItem("userdata") as string;
-        let y = JSON.parse(x);
-        y.role = userdata;
-        localStorage.setItem("userdata", JSON.stringify(y));
+        response.role = this.loginForm.controls.role.value;
+        localStorage.setItem("userData", JSON.stringify(response));
+        this.userData = response;
         this.router.navigateByUrl('/admin/dashboard');
+        this.toastr.success(response.name, 'Login Successfully!! Welcome ');
       },
       error: (error: any) => {
-       
-          this.toastr.error('Something Went wrong please try again');
-       
-      },  
-    });
-   
+
+        this.toastr.error('Something Went wrong please try again');
+
+      },
+    })
   }
 
-   ////Social Login  
+  ////Social Login  
   signInWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
     this.socialAuthService.authState.subscribe((user: any) => {
-      user.role="admin";     
-      localStorage.setItem('user',JSON.stringify(user));
-      this.toastr.success ('You Have created account Successfuly please Login to continue');
-      this.router.navigateByUrl('admin/dashboard')});
+      user.role = "admin";
+      localStorage.setItem('user', JSON.stringify(user));
+      this.toastr.success('You Have created account Successfuly please Login to continue');
+      this.router.navigateByUrl('admin/dashboard')
+    });
   }
 
 
   logOut(): void {
     this.socialAuthService.signOut();
   }
-  
+
 }

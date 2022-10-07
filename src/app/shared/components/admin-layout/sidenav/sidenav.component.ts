@@ -13,30 +13,31 @@ export class SidenavComponent  {
   navData = [
     {
       routerLink:'/admin/dashboard',
-      icon:'DashBoard',
+      icon:'dashboard',
       label:'Dashboard'
       
     },
     {
       routerLink:'post',
-      icon:'table',
+      icon:'table_view',
       label:'Post'
     },
     {
-      // routerLink:'dashboard',
-      icon:'',
+      routerLink:'profile',
+      icon:'supervised_user_circle',
       label:'Profile'
     },
+  
     {
-      // routerLink:'dashboard',
-      icon:'home',
-      label:'Pages'
+      routerLink:'/public/aboutus',
+      icon:'information',
+      label:'About'
     },
     {
-      // routerLink:'dashboard',
-      icon:'home',
-      label:'Home'
-    }
+      routerLink:'/public/contactus',
+      icon:'contacts',
+      label:'Contact-Us'
+    },
   ]
 
 closeSideNav(){

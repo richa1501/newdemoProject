@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PostApiService } from '../../service/post-api.service';
 import { dataList } from './postList';
 
+
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',

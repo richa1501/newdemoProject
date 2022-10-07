@@ -1,9 +1,6 @@
-
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import api from 'src/app/shared/configs/api';
-import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 
@@ -11,35 +8,26 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  
 
-  userdata:any= null;
-  
-  
-  constructor(private http : HttpClient,
-    private router: Router) { 
 
-    this.userdata = localStorage.getItem("userdata") || "{}";
-    this.userdata= JSON.parse(this.userdata);    
+  userData: any = null;
+
+  constructor(private http: HttpClient,
+    private router: Router) { }
+
+  ///Login Api intigration
+
+  logIn(body: any) {
+    return this.http.post(api.auth.login, body);
   }
 
+  ///For Logout and to clear local storage 
+  logout() {
+    this.userData = {};
+    localStorage.setItem("userdata", "{}");
+    // localStorage.clear();
+    this.router.navigate(["/auth"]);
 
-  logIn(body:any){
-   
-   return this.http.post(api.auth.login, body).pipe(
-    tap((response)=>{
-      localStorage.setItem("userdata",JSON.stringify(response));
-      this.userdata=response ;     
-      
-      this.router.navigate(["/admin"]);
-    })
-   )
+  }
 }
-logout(){
-  this.userdata={};  
-  localStorage.setItem("userdata","{}");
-  // localStorage.clear();
-  this.router.navigate(["/auth"]);
-  
-}
-}
+

@@ -23,9 +23,7 @@ mat-drawer{
     top:0;
     bottom:-15px;
     overflow-x: hidden;
-    transition: all 0.3s ease;
-   
-    
+    transition: all 0.3s ease;    
 }
 .app-sidenav-open{
     width:250px;
@@ -36,7 +34,9 @@ mat-drawer{
     width:calc(100% - 50px);
     position:relative;
     left: 50px;   
-    margin:0;   
+    margin:0;   padding:20px;
+    border:2px solid rgb(16, 136, 206);
+    box-shadow: 5px 10px rgb(86, 106, 117);
 }
 .main-area{
     > * {

@@ -1,4 +1,4 @@
-<section>
+<section >
     <app-header></app-header>
     <div class="card-wrapper">
         <mat-card>
@@ -7,6 +7,7 @@
             </mat-card-header>
             <mat-card-content>
                 <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                    <!----Name Feild---->
                     <p>
                         <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
                             <mat-label>User Name</mat-label>
@@ -17,6 +18,7 @@
                             </mat-error>
                         </mat-form-field>
                     </p>
+                    <!----Email Feild---->
                     <p>
                         <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
                             <mat-label>Email</mat-label>
@@ -28,8 +30,8 @@
                                 Email is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
-
                     </p>
+                    <!----Password Feild---->
                     <p>
                         <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
                             <mat-label>Password</mat-label>
@@ -45,6 +47,7 @@
                             </mat-error>
                         </mat-form-field>
                     </p>
+                    <!----ConfirmPassword Feild---->
                     <p>
                         <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
                             <mat-label>ConfirmPassword</mat-label>
@@ -58,15 +61,15 @@
                             </mat-error>
                         </mat-form-field>
                     </p>
+
+                    <!----Action Button Feild---->
                     <p>
                         <mat-card-actions>
                             <button mat-raised-button color="primary" type="Submit"
                                 [disabled]="signupForm.invalid">Register</button>
                         </mat-card-actions>
                     </p>
-
                 </form>
-
             </mat-card-content>
         </mat-card>
     </div>

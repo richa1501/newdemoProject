@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ToastrModule } from 'ngx-toastr';
+// import { MatTableExporterModule } from 'mat-table-exporter';
+
 
 
 
@@ -37,11 +39,12 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot({
       timeOut:3000,
       preventDuplicates: true,
+    
     }),
      NgxUiLoaderModule,    
     NgxUiLoaderRouterModule.forRoot({
       showForeground:true,
-    }), MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, LayoutModule,
+    }), MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, LayoutModule
     
    
   ],

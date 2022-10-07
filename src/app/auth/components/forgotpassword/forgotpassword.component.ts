@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgotpassword.component.scss']
 })
 export class ForgotpasswordComponent  {
+  http: any;
+  toastr: any;
 
-  constructor() { }
+  constructor(private httpClient : HttpClient) { }
 
-
+submit(){
+ 
+}
 }

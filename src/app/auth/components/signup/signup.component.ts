@@ -12,40 +12,40 @@ import { SignupService } from '../../services/signup.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  user: User = new User();
+
+  user: User = new User(); ///For social Login
 
   signupForm = this.formBuilder.group({
+
     name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [
-      Validators.required,
-      emailValidator,
-    ]),
-    password: new FormControl('', [
-      Validators.required,passwordValidator
-      
-    ]),
-    cpassword: new FormControl('', [Validators.required,mustMatch]),
+    email: new FormControl('', [Validators.required, emailValidator]), /// emailValidator is name of cutomeValidator fuction
+    password: new FormControl('', [Validators.required, passwordValidator]), /// PasswordValidator is name of cutomeValidator fuction
+    cpassword: new FormControl('', [Validators.required, mustMatch]),/// mustMatch is name of cutomeValidator fuction to match password & confirmPassword
   });
+  userInfo: any;  //// local Storage key name to save Response
+
+  ///Dependency Injection
   constructor(
     private formBuilder: FormBuilder,
     private signupservice: SignupService,
     private router: Router,
-    private toastr : ToastrService
-  ) {}
+    private toastr: ToastrService
+  ) { }
 
-
+  ///SignUp to register user and save in local storage
   signUp() {
     this.signupservice.signUp(this.signupForm.getRawValue()).subscribe({
-      next: (response: any) => {        
-        this.toastr.success ('You Have created account Successfuly please Login to continue');
+      next: (response: any) => {
+        localStorage.setItem("userInfo", JSON.stringify(response));
+        this.userInfo = response;
+        this.toastr.success('You Have created account Successfuly please Login to continue');
         this.router.navigate(['/auth/login']);
       },
+
+      ///To show error       
       error: (error: any) => {
-       this.toastr.error('Something Went wrong please try again')
+        this.toastr.error('Something Went wrong please try again')
       },
     });
   }
-
-
-  
 }

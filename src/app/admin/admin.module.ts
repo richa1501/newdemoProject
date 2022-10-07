@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -17,7 +18,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,MaterialModule,SharedModule
+    AdminRoutingModule,MaterialModule,SharedModule,
   ]
 })
 export class AdminModule { }
