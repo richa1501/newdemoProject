@@ -7,12 +7,13 @@ import api from 'src/app/shared/configs/api';
 })
 
 export class SignupService {
+  userData: any;
 
   constructor(private http : HttpClient) { }
     
-///SignUp Api Intigration
+//SignUp Api Intigration
 
 signUp(body:any){ 
-  return this.http.post(api.auth1.signUp,body);
+  return this.http.post(api.authSignUp.signUp,body);
 }
 }

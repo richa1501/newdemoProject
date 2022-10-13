@@ -6,6 +6,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PostComponent } from './components/post/post.component';
 import { MaterialModule } from '../material/mateial.module';
 import { SharedModule } from '../shared/shared.module';
+import { DashboardUiComponent } from './components/dashboard-ui/dashboard-ui.component';
+import { PostModelComponent } from './components/post-model/post-model.component';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
+
+
 
 
 
@@ -14,11 +20,12 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     DashboardComponent,
     ProfileComponent,
-    PostComponent
+    PostComponent, 
+   DashboardUiComponent, PostModelComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,MaterialModule,SharedModule,
+    AdminRoutingModule,MaterialModule,SharedModule,ReactiveFormsModule,FormsModule,NgDynamicBreadcrumbModule
   ]
 })
 export class AdminModule { }

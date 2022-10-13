@@ -56,7 +56,7 @@ export class LoginComponent {
         response.role = this.loginForm.controls.role.value;
         localStorage.setItem("userData", JSON.stringify(response));
         this.userData = response;
-        this.router.navigateByUrl('/admin/dashboard');
+        this.router.navigateByUrl('/admin/dashboard/home');
         this.toastr.success(response.name, 'Login Successfully!! Welcome ');
       },
       error: (error: any) => {
@@ -67,14 +67,14 @@ export class LoginComponent {
     })
   }
 
-  ////Social Login  
+  //Social Login  
   signInWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
     this.socialAuthService.authState.subscribe((user: any) => {
       user.role = "admin";
       localStorage.setItem('user', JSON.stringify(user));
       this.toastr.success('You Have created account Successfuly please Login to continue');
-      this.router.navigateByUrl('admin/dashboard')
+      this.router.navigateByUrl('admin/dashboard/home')
     });
   }
 

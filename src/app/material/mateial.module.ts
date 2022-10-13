@@ -44,6 +44,8 @@ import { MatTableExporterModule } from 'mat-table-exporter';
 
 
 
+
+
 const MaterailComponent = [  A11yModule,
   CdkStepperModule,
   CdkTableModule,
@@ -86,7 +88,8 @@ const MaterailComponent = [  A11yModule,
   MatTreeModule,
   PortalModule,
   ScrollingModule,
-  MatTableExporterModule
+  MatTableExporterModule,
+ 
 ]
 
 @NgModule({

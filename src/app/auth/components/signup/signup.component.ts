@@ -13,18 +13,18 @@ import { SignupService } from '../../services/signup.service';
 })
 export class SignupComponent {
 
-  user: User = new User(); ///For social Login
+  user: User = new User(); //For social Login
 
   signupForm = this.formBuilder.group({
 
     name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, emailValidator]), /// emailValidator is name of cutomeValidator fuction
-    password: new FormControl('', [Validators.required, passwordValidator]), /// PasswordValidator is name of cutomeValidator fuction
-    cpassword: new FormControl('', [Validators.required, mustMatch]),/// mustMatch is name of cutomeValidator fuction to match password & confirmPassword
+    email: new FormControl('', [Validators.required, emailValidator]), // emailValidator is name of cutomeValidator fuction
+    password: new FormControl('', [Validators.required, passwordValidator]), // PasswordValidator is name of cutomeValidator fuction
+    cpassword: new FormControl('', [Validators.required, mustMatch]),// mustMatch is name of cutomeValidator fuction to match password & confirmPassword
   });
-  userInfo: any;  //// local Storage key name to save Response
+  userData: any;  // local Storage key name to save Response
 
-  ///Dependency Injection
+  //Dependency Injection
   constructor(
     private formBuilder: FormBuilder,
     private signupservice: SignupService,
@@ -32,17 +32,17 @@ export class SignupComponent {
     private toastr: ToastrService
   ) { }
 
-  ///SignUp to register user and save in local storage
+  //SignUp to register user and save in local storage
   signUp() {
     this.signupservice.signUp(this.signupForm.getRawValue()).subscribe({
       next: (response: any) => {
-        localStorage.setItem("userInfo", JSON.stringify(response));
-        this.userInfo = response;
+        localStorage.setItem("userData", JSON.stringify(response));
+        this.userData = response;
         this.toastr.success('You Have created account Successfuly please Login to continue');
         this.router.navigate(['/auth/login']);
       },
 
-      ///To show error       
+      //To show error       
       error: (error: any) => {
         this.toastr.error('Something Went wrong please try again')
       },

@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Add Post </h1>
+<form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+<div mat-dialog-content>
+    
+    <!-- <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
+        <mat-label>ID</mat-label>
+        <input type="number" matInput formControlName="id" placeholder="id" />
+    </mat-form-field> -->
+
+    <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
+        <mat-label>name</mat-label>
+        <input type="text" matInput formControlName="name" placeholder="Full Name" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
+        <mat-label>username</mat-label>
+        <input type="text" matInput formControlName="username" placeholder=" User Name" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
+        <mat-label>email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="email" />
+    </mat-form-field>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" type="Submit">Submit</button>
+    </mat-card-actions>
+</div>
+
+</form>
+

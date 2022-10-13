@@ -31,7 +31,7 @@ import { GoogleLoginProvider } from 'angularx-social-login';
     SharedModule,
   ],
 
-  providers: [  ////Social Login crediential and Providers 
+  providers: [  //Social Login crediential and Providers 
   {
     provide: 'SocialAuthServiceConfig',
     useValue: {

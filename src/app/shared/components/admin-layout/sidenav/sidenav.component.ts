@@ -12,7 +12,7 @@ export class SidenavComponent  {
   collapsed: boolean = true;
   navData = [
     {
-      routerLink:'/admin/dashboard',
+      routerLink:'/admin/dashboard/home',
       icon:'dashboard',
       label:'Dashboard'
       
@@ -29,12 +29,12 @@ export class SidenavComponent  {
     },
   
     {
-      routerLink:'/public/aboutus',
+      routerLink:'aboutus',
       icon:'information',
       label:'About'
     },
     {
-      routerLink:'/public/contactus',
+      routerLink:'contactus',
       icon:'contacts',
       label:'Contact-Us'
     },

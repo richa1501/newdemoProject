@@ -3,6 +3,13 @@ import { CommonModule } from '@angular/common';
 import { PublicRoutingModule } from './public-routing.module';
 import { AboutusComponent } from './component/aboutus/aboutus.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
+import { MaterialModule } from '../material/mateial.module';
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -12,7 +19,6 @@ import { ContactusComponent } from './component/contactus/contactus.component';
   ],
   imports: [
     CommonModule,
-    PublicRoutingModule,
-  ]
+    PublicRoutingModule ,MaterialModule]
 })
 export class PublicModule { }

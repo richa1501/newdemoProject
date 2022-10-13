@@ -10,10 +10,12 @@ import { Router } from '@angular/router';
 export class AuthService {
 
 
-  userData: any = null;
+  userData: any ;
 
   constructor(private http: HttpClient,
-    private router: Router) { }
+    private router: Router) { this.userData=localStorage.getItem('userData') ;
+    this.userData=JSON.parse(this.userData)
+  }
 
   ///Login Api intigration
 
@@ -24,7 +26,7 @@ export class AuthService {
   ///For Logout and to clear local storage 
   logout() {
     this.userData = {};
-    localStorage.setItem("userdata", "{}");
+    localStorage.setItem("userData", "{}");
     // localStorage.clear();
     this.router.navigate(["/auth"]);
 

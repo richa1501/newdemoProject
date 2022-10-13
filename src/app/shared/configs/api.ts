@@ -6,7 +6,7 @@ export default {
     auth:{
         login : apiserver +  "api/v1/auth/login" 
     }  ,
-    auth1:{
+    authSignUp:{
         signUp: apiserver +  "api/v1/auth/signup" 
     }  
 

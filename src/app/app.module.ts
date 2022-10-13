@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
-import { PublicModule } from './public/public.module';
+
 import {  NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { NgIdleModule } from '@ng-idle/core';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -33,8 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SharedModule,
-    PublicModule,
+    SharedModule,    
     NgIdleModule.forRoot(),
     ToastrModule.forRoot({
       timeOut:3000,

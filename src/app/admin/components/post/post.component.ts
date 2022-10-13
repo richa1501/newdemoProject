@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PostApiService } from '../../service/post-api.service';
 import { dataList } from './postList';
-
+import {MatDialog,MatDialogConfig} from '@angular/material/dialog'
+import { PostModelComponent } from '../post-model/post-model.component';
 
 
 @Component({
@@ -12,24 +13,27 @@ import { dataList } from './postList';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
+
 export class PostComponent{
-  apiData: dataList[] | any;
-  displayedColumns: string[] = ['id', 'email', 'first_name', 'last_name','avatar'];
-  dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  @ViewChild(MatSort)
+  @ViewChild(MatSort) 
+
   sort: MatSort = new MatSort;
+  apiData: dataList[] | any;
+  displayedColumns: string[] = ['id', 'name', 'username','email','action'];
+  dataSource = new MatTableDataSource();  
 
   
-  constructor(private postApi : PostApiService) { 
-    this.fatchList();
+  constructor(private postApi : PostApiService ,private dialog: MatDialog) { 
+    this.getList();
 
   }
-  fatchList(){
+  getList(){
     this.postApi.postList().subscribe({next: (response:any)=>{
-      this.apiData=response.data;
+      this.apiData=response;
+      console.log(this.apiData)
       this.dataSource = new MatTableDataSource(this.apiData);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -37,11 +41,10 @@ export class PostComponent{
     }});
   }
 
+ editPost(id:any){
 
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  //   this.apiData = this.sort;
-  // }
+ }
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -51,7 +54,11 @@ export class PostComponent{
     }
   }
 
+  openDialog(){
+    this.dialog.open(PostModelComponent,{
+      width:'30%'    
+    })
+  }
 
-  
 
 }

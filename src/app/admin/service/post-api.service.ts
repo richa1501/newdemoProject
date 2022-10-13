@@ -11,6 +11,13 @@ export class PostApiService {
 
 
   postList(){
-   return this.http.get("https://reqres.in/api/users");
+   return this.http.get("https://jsonplaceholder.cypress.io/users");
+  }
+  addpostData(data:any){
+    return this.http.post("https://jsonplaceholder.cypress.io/users",data);
+  }
+  editpostData(data:any){
+    return this.http.post("https://jsonplaceholder.cypress.io/users/put/id",data);
   }
 }
+
