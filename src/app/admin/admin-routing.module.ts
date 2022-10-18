@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from '../public/component/aboutus/aboutus.component';
+import { ContactusComponent } from '../public/component/contactus/contactus.component';
 import { DashboardUiComponent } from './components/dashboard-ui/dashboard-ui.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PostComponent } from './components/post/post.component';
@@ -52,11 +53,7 @@ children:[
       {
         label: 'Dashboard',
         url: '/admin/dashboard/home'
-      },
-      {
-        label: 'post',
-        url: '/admin/dashboard/post'
-      },
+      }, 
       {
         label: 'Profile',
         url: ''
@@ -67,8 +64,40 @@ children:[
  
   {
     path: 'aboutus',
-  component:AboutusComponent
+  component:AboutusComponent,
+  data: {
+    title: 'AboutUs',
+    breadcrumb: [
+      {
+        label: 'AboutUs',
+        url: '/admin/dashboard/home'
+      }, 
+      {
+        label: 'AboutUs',
+        url: ''
+      }
+    ]
+  }
   },
+
+  {
+    path: 'contactus',
+  component:ContactusComponent,
+  data: {
+    title: 'ContactUs',
+    breadcrumb: [
+      {
+        label: 'ContactUs',
+        url: '/admin/dashboard/home'
+      }, 
+      {
+        label: 'ContactUs',
+        url: ''
+      }
+    ]
+  }
+  },
+  
 
 ]},
 {path:'**',

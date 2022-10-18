@@ -1,28 +1,25 @@
-<h1 mat-dialog-title>Add Post </h1>
-<form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+<h1 mat-dialog-title>{{title}} </h1>
+<form [formGroup]="postForm" (ngSubmit)="addPost()">
 <div mat-dialog-content>
     
-    <!-- <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
-        <mat-label>ID</mat-label>
-        <input type="number" matInput formControlName="id" placeholder="id" />
-    </mat-form-field> -->
-
+  <!--Name Field-->
     <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
         <mat-label>name</mat-label>
         <input type="text" matInput formControlName="name" placeholder="Full Name" />
     </mat-form-field>
-
+  <!--User Name Field-->
     <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
         <mat-label>username</mat-label>
         <input type="text" matInput formControlName="username" placeholder=" User Name" />
     </mat-form-field>
-
+  <!--Email Field-->
     <mat-form-field class="example-full-width" appearance="outline" style="width: 100%">
         <mat-label>email</mat-label>
         <input type="email" matInput formControlName="email" placeholder="email" />
     </mat-form-field>
+     <!--Action Button-->
     <mat-card-actions>
-        <button mat-raised-button color="primary" type="Submit">Submit</button>
+        <button mat-raised-button color="primary" type="Submit">{{actionBtn}}</button>
     </mat-card-actions>
 </div>
 

@@ -10,14 +10,17 @@ export class PostApiService {
   constructor(private http : HttpClient) { }
 
 
-  postList(){
-   return this.http.get("https://jsonplaceholder.cypress.io/users");
+  getPostList(){
+   return this.http.get<any>("http://localhost:3000/posts/");
   }
   addpostData(data:any){
-    return this.http.post("https://jsonplaceholder.cypress.io/users",data);
+    return this.http.post<any>("http://localhost:3000/posts/",data);
   }
-  editpostData(data:any){
-    return this.http.post("https://jsonplaceholder.cypress.io/users/put/id",data);
+  editpostData(data:any,id:number){
+    return this.http.put("http://localhost:3000/posts/"+id,data);
+  }
+  deletepostData(id:number){
+    return this.http.delete<any>("http://localhost:3000/posts/"+id);
   }
 }
 

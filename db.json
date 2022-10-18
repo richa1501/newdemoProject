@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "id": 5,
+      "name": "Seren Joy ",
+      "username": "seren",
+      "email": "seren@gmail.com"
+    },
+    {
+      "name": "Ray Doren",
+      "username": "Ray",
+      "email": "ray@coco.com",
+      "id": 6
+    },
+    {
+      "name": "Richa Dwivedi",
+      "username": "RichaD",
+      "email": "richa@gmail.com",
+      "id": 7
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
