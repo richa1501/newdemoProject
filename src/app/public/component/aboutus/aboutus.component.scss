@@ -1,12 +1,22 @@
 
 .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 5rem 0;
+    display: flex;
+     /* Space out the Bootstrap <hr> more */
   }
-  
+  .row .featurette{
+    display: flex;
+  }
+
   /* Thin out the marketing headings */
   /* rtl:begin:remove */
   .featurette-heading {
     letter-spacing: -.05rem;
   }
-  
+
+  h1{
+    margin-top: 30px;
+    text-align: center;
+
+  }
   /* rtl:end:remove */

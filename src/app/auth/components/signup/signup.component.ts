@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -24,14 +24,16 @@ export class SignupComponent {
   });
   userData: any;  // local Storage key name to save Response
 
-  /**Dependency Injection*/
+  //Dependency Injection
   constructor(
     private formBuilder: FormBuilder,
     private signupservice: SignupService,
     private router: Router,
     private toastr: ToastrService
   ) { }
- /** SignUp to register user and save in local storage*/ 
+ /**
+  *  SignUp to register user and save in local storage
+  */
   signUp() {
     this.signupservice.signUp(this.signupForm.getRawValue()).subscribe({
       next: (response: any) => {
@@ -40,8 +42,6 @@ export class SignupComponent {
         this.toastr.success('You Have created account Successfuly please Login to continue');
         this.router.navigate(['/auth/login']);
       },
-
-      /**To show error */      
       error: (error: any) => {
         this.toastr.error('Something Went wrong please try again')
       },

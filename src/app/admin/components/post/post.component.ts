@@ -19,46 +19,52 @@ export class PostComponent{
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  @ViewChild(MatSort) 
-  
-  
+  @ViewChild(MatSort)
+
+
   sort: MatSort = new MatSort;
   apiData: dataList[] | any;
   displayedColumns: string[] = ['id', 'name', 'username','email','action'];
-  dataSource = new MatTableDataSource();  
+  dataSource = new MatTableDataSource();
   id: any;
 
-  
-  constructor(private postApi : PostApiService ,private dialog: MatDialog,private toastrservice: ToastrService,) { 
+
+  constructor(private postApi : PostApiService ,private dialog: MatDialog,private toastrservice: ToastrService,) {
     this.getList();
 
   }
-   /** Function to open dialog */
+   /**
+     Function to open dialog
+   */
   openDialog(){
     this.dialog.open(PostModelComponent,{
-      width:'30%'    
+      width:'30%'
     }).afterClosed().subscribe(val=>{
       if(val === 'save'){
         this.getList();
       }
     })
-  }   
+  }
 
- /** Function to fatch all list data*/ 
+ /**
+  Function to fatch all list data
+  */
   getList(){
     this.postApi.getPostList().subscribe({next: (response:any)=>{
-      this.apiData=response;    
+      this.apiData=response;
       this.dataSource = new MatTableDataSource(this.apiData);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
 
     }});
   }
- /** Function to edit and update data*/ 
+ /**
+  Function to edit and update data
+  */
  editPost(row:any){
   this.dialog.open(PostModelComponent,{
     width:'30%',
-    data:row,   
+    data:row,
   }).afterClosed().subscribe(val=>{
     if(val=== 'update'){
       this.getList();
@@ -66,7 +72,9 @@ export class PostComponent{
   })
  }
 
- /** Function to delete a list item */ 
+ /**
+  Function to delete a list item
+  */
  deletePost(id:number){
   this.postApi.deletepostData(id).subscribe({next: (response)=>{
     alert("You want to delete this record?");
@@ -74,11 +82,13 @@ export class PostComponent{
   },error:()=>{
     this.toastrservice.error("Something went wrong!")
   }
-  
+
 });
  }
-  
-  /** Function for filter*/ 
+
+  /**
+   Function for filter
+   */
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

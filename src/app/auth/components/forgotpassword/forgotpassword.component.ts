@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,8 +11,8 @@ export class ForgotpasswordComponent  {
   toastr: any;
 
   constructor(private httpClient : HttpClient) { }
-
+//To DO 
 submit(){
- 
+
 }
 }
