@@ -69,7 +69,7 @@ children:[
     title: 'AboutUs',
     breadcrumb: [
       {
-        label: 'AboutUs',
+        label: 'Dashboard',
         url: '/admin/dashboard/home'
       }, 
       {
@@ -87,7 +87,7 @@ children:[
     title: 'ContactUs',
     breadcrumb: [
       {
-        label: 'ContactUs',
+        label: 'Dashboard',
         url: '/admin/dashboard/home'
       }, 
       {
