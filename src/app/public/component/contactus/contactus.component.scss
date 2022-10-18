@@ -1,21 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-
-
-* {
-  font-family: 'Lato', sans-serif;
-}
-
-html,
-body {
-  width: 100%;
-  overflow-x: hidden;
-  background: #2d3436;
-  padding: 0;
-  margin: 0;
-
-
-}
-
 h1 {
   color: white;
   padding-top: 20px;
@@ -68,11 +51,6 @@ textarea {
 .mat-input-element {
   caret-color: white !important;
 }
-
-.mat-form-field-ripple {
-  background-color: white !important;
-}
-
 .mat-form-field {
   width: 100%;
 }

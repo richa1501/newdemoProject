@@ -18,10 +18,11 @@ export class PostModelComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     username: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, emailValidator,]),
-
   })
-  title:string="";
-actionBtn:string='save';
+
+  title: string = "";
+
+  actionBtn: string = 'save';
   constructor(
     private formbuilder: FormBuilder,
     private http: HttpClient,
@@ -33,47 +34,48 @@ actionBtn:string='save';
   ) { }
 
   ngOnInit(): void {
-    console.log(this.editData);
-    if(this.editData){
-      this.title='Edit Post';
-      this.actionBtn='Update'
+     /** If condition to get data in edit form */ 
+    if (this.editData) {
+      this.title = 'Edit Post';
+      this.actionBtn = 'Update'
       this.postForm.controls['name'].setValue(this.editData.name);
       this.postForm.controls['username'].setValue(this.editData.username);
       this.postForm.controls['email'].setValue(this.editData.email);
     }
-    else{
-      this.title='Add Post';
+    else {
+      this.title = 'Add Post';
     }
-
   }
+   /** Function to add new record */ 
   addPost() {
-    if(!this.editData){ 
+    if (!this.editData) {
       if (this.postForm.valid) {
-      this.postapiservice.addpostData(this.postForm.value).subscribe({
-       next: (res) => {
-         // console.log(res);
-         this.toastrservice.success("Post Added Successfully");
-         this.postForm.reset();
-         this.dialogRef.close('save');
-       }
-     })
-   }
-   
-  }else{
-    this.updatepost(this.editData.id)
+        this.postapiservice.addpostData(this.postForm.value).subscribe({
+          next: (res) => {
+       
+            this.toastrservice.success("Post Added Successfully");
+            this.postForm.reset();
+            this.dialogRef.close('save');
+          }
+        })
+      }
+
+    } else {
+      this.updatepost(this.editData.id)
+    }
   }
-  }
-  updatepost(id:number){
-    if(this.postForm.valid){
-      this.postapiservice.editpostData(this.postForm.value,this.editData.id).subscribe({
-        next:(res)=>{
+   /** Function to update exixting record*/ 
+  updatepost(id: number) {
+    if (this.postForm.valid) {
+      this.postapiservice.editpostData(this.postForm.value, this.editData.id).subscribe({
+        next: (res) => {
           this.toastrservice.success("Post updated Successfully");
           this.postForm.reset();
           this.dialogRef.close('update');
         }
       })
     }
-    else{
+    else {
       this.toastrservice.error("Error while updating post")
     }
   }

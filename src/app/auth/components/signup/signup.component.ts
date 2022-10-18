@@ -24,15 +24,14 @@ export class SignupComponent {
   });
   userData: any;  // local Storage key name to save Response
 
-  //Dependency Injection
+  /**Dependency Injection*/
   constructor(
     private formBuilder: FormBuilder,
     private signupservice: SignupService,
     private router: Router,
     private toastr: ToastrService
   ) { }
-
-  //SignUp to register user and save in local storage
+ /** SignUp to register user and save in local storage*/ 
   signUp() {
     this.signupservice.signUp(this.signupForm.getRawValue()).subscribe({
       next: (response: any) => {
@@ -42,7 +41,7 @@ export class SignupComponent {
         this.router.navigate(['/auth/login']);
       },
 
-      //To show error       
+      /**To show error */      
       error: (error: any) => {
         this.toastr.error('Something Went wrong please try again')
       },

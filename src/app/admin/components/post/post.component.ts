@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PostApiService } from '../../service/post-api.service';
 import { dataList } from './postList';
-import {MatDialog,MatDialogConfig} from '@angular/material/dialog'
+import {MatDialog} from '@angular/material/dialog'
 import { PostModelComponent } from '../post-model/post-model.component';
 import { ToastrService } from 'ngx-toastr';
 
@@ -20,19 +20,20 @@ export class PostComponent{
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort) 
-
+  
+  
   sort: MatSort = new MatSort;
   apiData: dataList[] | any;
   displayedColumns: string[] = ['id', 'name', 'username','email','action'];
   dataSource = new MatTableDataSource();  
-id: any;
+  id: any;
 
   
   constructor(private postApi : PostApiService ,private dialog: MatDialog,private toastrservice: ToastrService,) { 
     this.getList();
 
   }
-
+   /** Function to open dialog */
   openDialog(){
     this.dialog.open(PostModelComponent,{
       width:'30%'    
@@ -43,7 +44,7 @@ id: any;
     })
   }   
 
-
+ /** Function to fatch all list data*/ 
   getList(){
     this.postApi.getPostList().subscribe({next: (response:any)=>{
       this.apiData=response;    
@@ -53,7 +54,7 @@ id: any;
 
     }});
   }
-
+ /** Function to edit and update data*/ 
  editPost(row:any){
   this.dialog.open(PostModelComponent,{
     width:'30%',
@@ -65,7 +66,7 @@ id: any;
   })
  }
 
-
+ /** Function to delete a list item */ 
  deletePost(id:number){
   this.postApi.deletepostData(id).subscribe({next: (response)=>{
     alert("You want to delete this record?");
@@ -77,6 +78,7 @@ id: any;
 });
  }
   
+  /** Function for filter*/ 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

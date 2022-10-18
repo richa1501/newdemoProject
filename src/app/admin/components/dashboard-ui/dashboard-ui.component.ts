@@ -1,19 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-ui',
   templateUrl: './dashboard-ui.component.html',
   styleUrls: ['./dashboard-ui.component.scss']
 })
-export class DashboardUiComponent  {
+export class DashboardUiComponent {
 
-  sideNavStatus : boolean = false;
-
-
- 
-  
-  constructor() {}
-
-
+  sideNavStatus: boolean = false; 
 }
 

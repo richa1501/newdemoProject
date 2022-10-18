@@ -1,4 +1,5 @@
 
+// header css starts 
 app-adminheader{
     position: fixed;
     width:100%;
@@ -14,7 +15,7 @@ app-adminheader{
     height: calc( 100vh - 4rem);
     
 }
-
+// sidenav and content area css starts
 mat-drawer{
     width: 50px;   
     background-color:rgb(16, 136, 206); 

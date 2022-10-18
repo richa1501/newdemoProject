@@ -1,21 +1,18 @@
-
-
-    <div class="toolbar">
-      
-        <app-adminheader mat-icon (sidenavToggled)="sideNavStatus = $event;"></app-adminheader>
-        
-     </div>
-
-<mat-drawer-container class="main" >
-    
-    <mat-drawer #drawer mode="side" opened  [ngClass]="{'app-sidenav-open': sideNavStatus }">
-        <app-sidenav [sideNavStatus]="sideNavStatus"  ></app-sidenav >
+<!---Toolbar for admin module-->
+<div class="toolbar">
+    <app-adminheader mat-icon (sidenavToggled)="sideNavStatus = $event;"></app-adminheader>
+</div>
+<!---side nav and main content ---->
+<mat-drawer-container class="main">
+    <mat-drawer #drawer mode="side" opened [ngClass]="{'app-sidenav-open': sideNavStatus }">
+        <app-sidenav [sideNavStatus]="sideNavStatus"></app-sidenav>
     </mat-drawer>
-    <mat-drawer-content class="main-content"  [ngClass]="{'main-content-shrink' : sideNavStatus , 'main-con': !sideNavStatus ,'margin': sideNavStatus}">        
-         <div> <app-ng-dynamic-breadcrumb [bgColor]="'#eee'" [fontSize]="'18px'" [fontColor]="'#0275d8'" [lastLinkColor]="'#000'" [symbol]="' << '"></app-ng-dynamic-breadcrumb></div>  <router-outlet> </router-outlet>  
-         
-      
-         
-                
+    <mat-drawer-content class="main-content"
+        [ngClass]="{'main-content-shrink' : sideNavStatus , 'main-con': !sideNavStatus ,'margin': sideNavStatus}">
+        <div>
+            <app-ng-dynamic-breadcrumb [bgColor]="'#eee'" [fontSize]="'18px'" [fontColor]="'#0275d8'"
+                [lastLinkColor]="'#000'" [symbol]="' << '"></app-ng-dynamic-breadcrumb>
+        </div>
+        <router-outlet> </router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>

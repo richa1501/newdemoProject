@@ -11,11 +11,6 @@ import { PostModelComponent } from './components/post-model/post-model.component
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
 
-
-
-
-
-
 @NgModule({
   declarations: [
     DashboardComponent,

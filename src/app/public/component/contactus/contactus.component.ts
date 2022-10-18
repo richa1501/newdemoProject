@@ -6,9 +6,4 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contactus.component.scss']
 })
 export class ContactusComponent {
-
-  constructor() { }
-
-
-
 }

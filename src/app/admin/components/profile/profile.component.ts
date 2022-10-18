@@ -26,7 +26,7 @@ export class ProfileComponent  {
     
   ) { }
 
-
+ /** Function to update and save profile data */ 
   update(){
     let storageData:any = localStorage.getItem('userData');
     let modifiedData=JSON.parse(storageData);

@@ -43,7 +43,7 @@ export class LoginComponent {
 
   ) { }
 
-  //login with normal login 
+  /**To login and save data in local storage*/ 
   logIn() {
 
     let body = {
@@ -67,7 +67,7 @@ export class LoginComponent {
     })
   }
 
-  //Social Login  
+ /** Function for social login*/  
   signInWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
     this.socialAuthService.authState.subscribe((user: any) => {
@@ -78,7 +78,7 @@ export class LoginComponent {
     });
   }
 
-
+ /** Function for Logout*/ 
   logOut(): void {
     this.socialAuthService.signOut();
   }

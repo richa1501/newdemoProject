@@ -4,13 +4,6 @@ import { PublicRoutingModule } from './public-routing.module';
 import { AboutusComponent } from './component/aboutus/aboutus.component';
 import { ContactusComponent } from './component/contactus/contactus.component';
 import { MaterialModule } from '../material/mateial.module';
-
-
-
-
-
-
-
 @NgModule({
   declarations: [
 
