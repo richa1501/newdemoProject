@@ -10,13 +10,17 @@ import { DashboardUiComponent } from './components/dashboard-ui/dashboard-ui.com
 import { PostModelComponent } from './components/post-model/post-model.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
+import { ConfirmationDialogComponent } from '../shared/components/confirmation-dialog/confirmation-dialog.component';
+import { EchartsComponent } from './components/echarts/echarts.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ProfileComponent,
-    PostComponent, 
-   DashboardUiComponent, PostModelComponent,
+    PostComponent,
+   DashboardUiComponent, PostModelComponent, EchartsComponent, ChangepasswordComponent,
   ],
   imports: [
     CommonModule,

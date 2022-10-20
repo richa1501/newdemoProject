@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from '../public/component/aboutus/aboutus.component';
 import { ContactusComponent } from '../public/component/contactus/contactus.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { DashboardUiComponent } from './components/dashboard-ui/dashboard-ui.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EchartsComponent } from './components/echarts/echarts.component';
 import { PostComponent } from './components/post/post.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
-    {  
+    {
   path: 'dashboard',
 component:DashboardUiComponent,
 children:[
@@ -25,11 +27,12 @@ children:[
       }
     ]
   },
-  
+
   },
   {
     path: 'post',
   component:PostComponent,
+
   data: {
     title: 'Post',
     breadcrumb: [
@@ -47,21 +50,42 @@ children:[
   {
     path: 'profile',
   component:ProfileComponent,
+
   data: {
     title: 'Profile',
     breadcrumb: [
       {
         label: 'Dashboard',
         url: '/admin/dashboard/home'
-      }, 
+      },
       {
         label: 'Profile',
+        url: ''
+      },
+
+    ]
+  },
+
+  },
+
+  {
+    path: 'echarts',
+  component:EchartsComponent,
+  data: {
+    title: 'Echarts',
+    breadcrumb: [
+      {
+        label: 'Dashboard',
+        url: '/admin/dashboard/home'
+      },
+      {
+        label: 'Echarts',
         url: ''
       }
     ]
   },
   },
- 
+
   {
     path: 'aboutus',
   component:AboutusComponent,
@@ -71,7 +95,7 @@ children:[
       {
         label: 'Dashboard',
         url: '/admin/dashboard/home'
-      }, 
+      },
       {
         label: 'AboutUs',
         url: ''
@@ -89,7 +113,7 @@ children:[
       {
         label: 'Dashboard',
         url: '/admin/dashboard/home'
-      }, 
+      },
       {
         label: 'ContactUs',
         url: ''
@@ -97,9 +121,14 @@ children:[
     ]
   }
   },
-  
+  {
+    path:'changePassword',
+    component:ChangepasswordComponent
+  },
+
 
 ]},
+
 {path:'**',
   redirectTo:"/admin/dashboard/home",
   pathMatch:"full"},

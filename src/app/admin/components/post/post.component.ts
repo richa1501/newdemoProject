@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,8 @@ import { dataList } from './postList';
 import {MatDialog} from '@angular/material/dialog'
 import { PostModelComponent } from '../post-model/post-model.component';
 import { ToastrService } from 'ngx-toastr';
+import { ConfigurableFocusTrap } from '@angular/cdk/a11y';
+import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./post.component.scss']
 })
 
-export class PostComponent{
+export class PostComponent implements OnInit{
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -30,8 +32,12 @@ export class PostComponent{
 
 
   constructor(private postApi : PostApiService ,private dialog: MatDialog,private toastrservice: ToastrService,) {
-    this.getList();
 
+
+  }
+
+  ngOnInit(): void {
+    this.getList();
   }
    /**
      Function to open dialog
@@ -71,11 +77,20 @@ export class PostComponent{
     }
   })
  }
+ openConfirmDialog() {
+ this.dialog.open(ConfirmationDialogComponent,{
+  width:'350x',
+  disableClose:true,
+
+ });
+}
+
 
  /**
   Function to delete a list item
   */
  deletePost(id:number){
+
   this.postApi.deletepostData(id).subscribe({next: (response)=>{
     alert("You want to delete this record?");
     this.getList();
@@ -85,6 +100,8 @@ export class PostComponent{
 
 });
  }
+
+
 
   /**
    Function for filter

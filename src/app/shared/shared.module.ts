@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/auth-layout/header/header.componen
 import { FooterComponent } from './components/auth-layout/footer/footer.component';
 import { AdminheaderComponent } from './components/admin-layout/adminheader/adminheader.component';
 import { SidenavComponent } from './components/admin-layout/sidenav/sidenav.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -23,6 +24,7 @@ import { SidenavComponent } from './components/admin-layout/sidenav/sidenav.comp
     FooterComponent,
     AdminheaderComponent,
     SidenavComponent,
+    ConfirmationDialogComponent,
 
   ],
   imports: [
@@ -30,12 +32,13 @@ import { SidenavComponent } from './components/admin-layout/sidenav/sidenav.comp
   ],
   exports: [
     ReactiveFormsModule,
-    FormsModule,   
+    FormsModule,
     AdminLayoutComponent,
     HeaderComponent,
     FooterComponent,
     AdminheaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    ConfirmationDialogComponent
   ]
 })
 export class SharedModule { }

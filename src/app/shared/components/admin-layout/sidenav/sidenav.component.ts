@@ -15,7 +15,7 @@ export class SidenavComponent  {
       routerLink:'/admin/dashboard/home',
       icon:'dashboard',
       label:'Dashboard'
-      
+
     },
     {
       routerLink:'post',
@@ -27,7 +27,17 @@ export class SidenavComponent  {
       icon:'supervised_user_circle',
       label:'Profile'
     },
-  
+    {
+      routerLink:'',
+      icon:'remove_red_eyee',
+      label:'Change Password'
+    },
+    {
+      routerLink:'echarts',
+      icon:'add_chart',
+      label:'E-Charts'
+    },
+
     {
       routerLink:'aboutus',
       icon:'information',
